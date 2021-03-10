@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>W App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+      <center>
+      <div class="card" style="width: fit-content; margin:30px">
+   <div class="wrapper" style="padding:30px">
+     <div class="row" style="max-width: 300px"><h3 id="city-name">city</h3></div>
+     <div class="row full-date" id="full-date" style="max-width: 320px; text-align: center"><h6>date&time</h6></div>
+     <div class="row temp-now" style="width:fit-content">
+        <div class="col icon" style="width:fit-content; text-align: left"><h2>🌤</h2></div>
+       <div class="col temp" style="width:fit-content; text-align: right"><h1 id="current-temp">°</h1></div>
+       <div class="col cefe" style="width:fit-content">
+          <a href="#" id="celsius-link"></a> 
+          <a href="#" id="fahrenheit-link"></a>
+        </div>
+       <center></div>
+    
+    <div class="row description" style="width:300px" id="description">
+    ∞
+    </div>    
+    <div class="row c-max-min" style="width:300px">
+      <center id="maxmin">max/min</center>
+    </div>
+
+
+<div class="row prox-temps" style="width:fit-content">
+     <div class="column" style="width:fit-content" >
+            <ul class="list-weekdays">
+                   <li class="list-group-item" id="day01">Friday</li>
+                   <li class="list-group-item" id="day02">Saturday</li>
+                   <li class="list-group-item" id="day03">Sunday</li>
+                   <li class="list-group-item" id="day04">Monday</li>
+                   <li class="list-group-item" id="day05">Tuesday</li>
+            </ul>
+     </div>
+     <div class="column" style="width:fit-content">
+            <ul class="list-icons">
+                    <li class="list-group-item">☀️</li>
+                    <li class="list-group-item">🌤</li>
+                    <li class="list-group-item">☀️</li>
+                    <li class="list-group-item">☁️</li>
+                    <li class="list-group-item">⛅️</li>
+             </ul>
+     </div>
+     <div class="column" style="width:fit-content">
+             <ul class="list-max">
+                    <li class="list-group-item">-2</li>
+                    <li class="list-group-item">-1</li>
+                    <li class="list-group-item">-2</li>
+                    <li class="list-group-item">-2</li>
+                    <li class="list-group-item">-1</li>
+              </ul>
+      </div>
+      <div class="column" style="width:fit-content">
+             <ul class="list-min">
+                    <li class="list-group-item">-15</li>
+                    <li class="list-group-item">-12</li>
+                    <li class="list-group-item">-16</li>
+                    <li class="list-group-item">-11</li>
+                    <li class="list-group-item">-5</li>
+             </ul>
+      </div>
+</div>
+<form> 
+      <input 
+                  type="search" 
+                  id="pickCity"
+                  placeholder=" Pick a city..." 
+                  style="width:240px"/>
+ 
+
+
+          <input type="submit" value="search" class="column but1" style="width:240px" id="search-city">
+</input>
+      <button class="column but2" style="width:240px" id="current-location"> 
+                current
+                              </button>
+        
+        </form>
+                           
+                <div class="sun-info" style="min-width: 245px">
+              <div class="row sun-titles">
+                  <div class="col rise">Sunrise</div>
+                  <div class="col set">Sunset</div>
+              </div>
+              <div class="row sun-times">
+                  <div class="col rise">7:24</div>
+                  <div class="col set">17:15</div>
+              </div>
+            </div>
+
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <script src="src/HW5script.js"></script>
+      </div>
+    </div>
+  </center>
+  </body>
+</html>
