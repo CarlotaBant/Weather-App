@@ -24,10 +24,14 @@ let months = [
   "December"
 ];
 
+//
+
+//
+
 let currentTime = document.querySelector("#full-date");
 currentTime.innerHTML = `${days[now.getDay()]}, ${now.getDate()} ${
   months[now.getMonth()]
-} ${now.getHours()}:${now.getMinutes()}`;
+} ${now.getHours()}:${(now.getMinutes() < 10 ? '0' : '') + now.getMinutes()}`;
 
 function showPosition(position) {
   let lat = position.coords.latitude;

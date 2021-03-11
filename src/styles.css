@@ -5,8 +5,8 @@ body {
 }
 
 h1 {
-  font-size: 60px;
-  padding: 0px;
+  font-size: 51px;
+  padding-top: 8px;
   margin: 0px;
 }
 
@@ -17,7 +17,7 @@ h2 {
 
 h3 {
   font-size: 32px;
-  padding-top: 10px;
+  padding-top: 0px;
 }
 
 h6 {
@@ -36,8 +36,8 @@ h6 {
 .row {
   border: 1px solid rgb(177, 182, 172);
   background-color: rgb(177, 182, 172);
-  margin-top: 6px;
-  padding: 4px;
+  margin-top: 3px;
+  padding: 2px;
   grid-gap: 1%;
 }
 
@@ -62,15 +62,15 @@ h6 {
 }
 
 .prox-temps {
-  margin: 5px;
-  padding: 5px;
+  margin: 3px;
+  padding: 3px;
   min-width: 290px;
 }
 
 .list-group-item {
   background-color: rgb(177, 182, 172);
   border-color: rgb(177, 182, 172);
-  margin: 10px auto;
+  margin: 3px auto;
   padding: 0px;
 }
 
@@ -182,4 +182,13 @@ button {
 
 .sun-info .set {
   text-align: right;
+}
+
+.byLota {
+  color: whitesmoke;
+  padding-right: 15px;
+}
+
+.linkLotaOpeSource {
+  color: rgba(63, 108, 108, 0.7);
 }
