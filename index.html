@@ -2,7 +2,7 @@
 <html>
   <head>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>Weather App</title>
+    <title>The Weather App</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=0.9">
     <link
@@ -11,105 +11,135 @@
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="src/styles.css" />
+  <link rel="stylesheet" href="src/styles.css"/> 
   </head>
   <body>
       <center>
-      <div class="card" style="width: fit-content; margin:30px">
-   <div class="wrapper" style="padding:30px">
-     <div class="row" style="max-width: 300px"><h3 id="city-name"></h3></div>
-     <div class="row full-date" id="full-date" style="max-width: 320px; text-align: center"><h6></h6></div>
-     <div class="row temp-now" style="width:fit-content">
-        <div class="col icon" style="width:fit-content; text-align: left"><h2>🌤</h2></div>
-       <div class="col temp" style="width:fit-content; text-align: right"><h1 id="current-temp"></h1></div>
-       <div class="col cefe" style="width:fit-content">
-          <a href="#" id="celsius-link"></a> 
-          <a href="#" id="fahrenheit-link"></a>
+
+      <div class="card" style="min-width: 450px; display: block; margin:30px">
+      <div class="wrapper" style="min-width: 450px; display: block; margin:6px auto; padding: 25px;">
+
+
+      <div class="row city">
+        <h3 class="city-name"id="city-name"></h3>
+      </div>
+      
+      <div class="row date">
+        <h6 class="c-date" id="full-date" style="display:block"></h6>
+      </div>
+     
+
+     <div class="row icon-temp-unit-units" style="max-width:300px">
+       <div class="col"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif" id="icon" class="c-icon" alt="Clear"/></div>
+       <div class="col">
+         <h1 class="c-temp" id="temperature"></h1>
         </div>
-       <center></div>
+       <div class="col"> <h5 class="c-unit" id="active-unit">°C</h5></div>
+       <div class="col units">         
+        <a href="#" class="units celsiusLink" id="celsius-link">°C</a> |
+        <a href="#" class="units fahrenheitLink" id="fahrenheit-link">°F</a>
+     </div>
+       </div>  
+
     
-    <div class="row description" style="width:300px" id="description">
-    
-    </div>    
-    <div class="row c-max-min" style="width:300px">
-      <center id="maxmin"></center>
+  <div class="row other-info" style="min-width:350">   
+
+    <div class="column parameters" style="width:fit-content">
+      <ul class="parameters">
+         <li class="row param description">Today:</li> 
+         <li class="row param max">Min:</li>
+         <li class="row param max">Max:</li>
+         <li class="row param windSpeed">Wind speed:</li>
+         <li class="row param humidity">Humidity:</li>
+      </ul>
     </div>
 
+    <div class="column current-data" style="width:fit-content" >
+      <ul class="information">
+         <li class="row info description" id="description">  </li> 
+         <li class="row info c-max-min" id="min">  </li>
+         <li class="row info c-max-min" id="max">  </li>
+         <li class="row info windSpeed" id="wind">  </li>
+         <li class="row info humidity" id="hum">  </li>
+      </ul>
+    </div>
 
-<div class="row prox-temps" style="width:fit-content">
-     <div class="column" style="width:fit-content" >
-            <ul class="list-weekdays">
-                   <li class="list-group-item" id="day01">Friday</li>
-                   <li class="list-group-item" id="day02">Saturday</li>
-                   <li class="list-group-item" id="day03">Sunday</li>
-                   <li class="list-group-item" id="day04">Monday</li>
-                   <li class="list-group-item" id="day05">Tuesday</li>
-            </ul>
-     </div>
-     <div class="column" style="width:fit-content">
-            <ul class="list-icons">
-                    <li class="list-group-item">☀️</li>
-                    <li class="list-group-item">🌤</li>
-                    <li class="list-group-item">☀️</li>
-                    <li class="list-group-item">☁️</li>
-                    <li class="list-group-item">⛅️</li>
-             </ul>
-     </div>
-     <div class="column" style="width:fit-content">
-             <ul class="list-max">
-                    <li class="list-group-item">-2</li>
-                    <li class="list-group-item">-1</li>
-                    <li class="list-group-item">-2</li>
-                    <li class="list-group-item">-2</li>
-                    <li class="list-group-item">-1</li>
-              </ul>
-      </div>
-      <div class="column" style="width:fit-content">
-             <ul class="list-min">
-                    <li class="list-group-item">-15</li>
-                    <li class="list-group-item">-12</li>
-                    <li class="list-group-item">-16</li>
-                    <li class="list-group-item">-11</li>
-                    <li class="list-group-item">-5</li>
-             </ul>
-      </div>
-</div>
-<form> 
+  </div>  
+<br/>
+
+
+<table>
+  <tr class="forecast times">
+    <td id="day01"></td>
+    <td id="day02"></td>
+    <td id="day03"></td>
+    <td id="day04"></td>
+    <td id="day05"></td>
+  </tr>
+  <tr class="forecast icons">
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif" id="icon01" style="width:35px" alt="icon"/></td>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif" id="icon02" style="width:35px" alt="icon"/></td>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif" id="icon03" style="width:35px" alt="icon"/></td>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif" id="icon04" style="width:35px" alt="icon"/></td>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif" id="icon05" style="width:35px" alt="icon"/></td>
+  </tr>
+  <tr class="forecast minmax">
+    <td id="minmax01"></td>
+    <td id="minmax02"></td>
+    <td id="minmax03"></td>
+    <td id="minmax04"></td>
+    <td id="minmax05"></td>
+  </tr>
+
+</table>
+    
+
+
+<div class="form-and-buttons" style="padding:10px">
+
+  <form> 
       <input 
                   type="search" 
                   id="pickCity"
                   placeholder=" Pick a city..." 
-                  style="width:240px"/>
+                  style="width:240px; margin: 5px;"
+                  />
  
 
+<div class="row buttons" style="width:fit-content">
 
-          <input type="submit" value="search" class="column but1" style="width:240px" id="search-city">
+     <input 
+                  type="submit" 
+                  value="search" 
+                  class="column but1" 
+                  style="width:120px;" 
+                  id="search-city"> 
 </input>
-      <button class="column but2" style="width:240px" id="current-location"> 
+      
+<button class="column but2" style="width:120px" id="current-location"> 
                 current
-                              </button>
-        
+       </button>
+</div>                  
         </form>
-                           
-                <div class="sun-info" style="min-width: 245px">
-              <div class="row sun-titles">
-                  <div class="col rise">Sunrise</div>
-                  <div class="col set">Sunset</div>
-              </div>
-              <div class="row sun-times">
-                  <div class="col rise">7:24</div>
-                  <div class="col set">17:15</div>
-              </div>
-            </div>
-<p class="byLota"><a class="linkLotaOpeSource" href="https://github.com/CarlotaBant/Weather-App" target="_blank">Open-source code</a> by Lota Aya</p>
-            </div>
+        </div>
+            </div>               
+                
+<p class="byLota" style="text-align: left;">
+  <a 
+  class="linkLotaOpeSource" 
+  href="https://github.com/CarlotaBant/Weather-App" 
+  target="_blank">
+  Open-source code</a>  by Lota Aya
+</p>
+            
           </div>
         </div>
         </div>
 
-        <script src="src/HW5script.js"></script>
-      </div>
-    </div>
-  </center>
-  </body>
+         </div>
+       </div>
+     </center>
+     <script src="src/HW5script.js"></script>
+
+   </body>
 </html>
