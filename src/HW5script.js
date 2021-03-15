@@ -63,6 +63,8 @@ let apiKey = "db9add1eea80b5993c21c76a9a79855d";
 let apiUrlC = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
 let apiUrlF = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=${units}&cnt=5`;
 
+console.log(apiUrlC);
+
 axios.get(apiUrlC).then(showCurrentData);
 axios.get(apiUrlF).then(showForecast);
 
@@ -75,6 +77,13 @@ axios.get(apiUrlF).then(showForecast);
 function showCurrentData(response){
   let currentLocation = document.querySelector("#city-name");
       currentLocation.innerHTML = response.data.name;
+
+  let flagElement = document.querySelector("#flag")
+     cflag = response.data.sys.country;
+     flagElement.setAttribute("src", `https://www.countryflags.io/${cflag}/shiny/64.png`)
+     flagElement.setAttribute("alt", `${cflag} flag`)
+     flagElement.setAttribute("title", `${cflag}`)
+
 
   celsiusTemperature = response.data.main.temp;
 
@@ -161,11 +170,11 @@ function showForecast (response) {
   day04icon.setAttribute ("src", `https://openweathermap.org/img/wn/${icon04}@2x.png`);
   day05icon.setAttribute ("src", `https://openweathermap.org/img/wn/${icon05}@2x.png`);
 
-  day01minmax.innerHTML = `${minTemp01}° / ${maxTemp01}°`;
-  day02minmax.innerHTML = `${minTemp02}° / ${maxTemp01}°`;
-  day03minmax.innerHTML = `${minTemp03}° / ${maxTemp01}°`;
-  day04minmax.innerHTML = `${minTemp04}° / ${maxTemp01}°`;
-  day05minmax.innerHTML = `${minTemp05}° / ${maxTemp01}°`;
+  day01minmax.innerHTML = `${minTemp01}° - ${maxTemp01}°`;
+  day02minmax.innerHTML = `${minTemp02}° - ${maxTemp01}°`;
+  day03minmax.innerHTML = `${minTemp03}° - ${maxTemp01}°`;
+  day04minmax.innerHTML = `${minTemp04}° - ${maxTemp01}°`;
+  day05minmax.innerHTML = `${minTemp05}° - ${maxTemp01}°`;
 
 }
 
@@ -216,7 +225,7 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 /// STARTING COMMAND
 
-navigator.geolocation.getCurrentPosition(showPosition);
+//navigator.geolocation.getCurrentPosition(showPosition);
 pickedCity("Berlin");
 
 ///

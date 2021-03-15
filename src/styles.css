@@ -15,9 +15,9 @@ body {
 .row {
   border: 1px solid rgb(177, 182, 172);
   background-color: rgb(177, 182, 172);
+  gap: 1%;
   margin-top: 0px;
   padding: 0px;
-  gap: 1%;
 }
 
 .col {
@@ -25,7 +25,16 @@ body {
   padding: 0px;
 }
 
+#flag {
+  margin-left: 20px;
+}
+
+#flag:hover {
+  cursor: help;
+}
+
 .city-name {
+  display: block;
   font-size: 32px;
   padding-top: 10px;
 }
@@ -42,12 +51,17 @@ body {
   padding: 0px;
 }
 
+#icon {
+  margin-right: -20px;
+}
+
 .c-temp {
   font-size: 48px;
   padding: 0px;
   padding-top: 18px;
   margin: 0px;
   margin-right: -15px;
+  margin-left: -15px;
   text-align: right;
 }
 
@@ -68,16 +82,17 @@ body {
   width: fit-content;
 }
 
-.other-info {
+#other-info {
   margin: 5px;
   padding: 5px;
+  -ms-flex: 50%;
+  flex: 0 1 auto;
 }
 
 .param {
   color: rgba(51, 34, 17, 0.7);
   display: block;
   margin: 0px;
-  padding-left: 25px;
   text-align: right;
 }
 
@@ -98,11 +113,13 @@ ul {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 0px;
+  table-layout: auto;
 }
 
 table {
   width: 400px;
   grid-area: solid teal;
+  table-layout: auto;
 }
 
 .forecast {
@@ -144,7 +161,7 @@ button {
   box-shadow: rgba(0, 0, 0, 0.271) 1px 1px 6px 0;
   color: white;
   display: inline;
-  margin: 4px;
+  margin: 8px;
   padding: 4px;
   width: 130px;
 }
