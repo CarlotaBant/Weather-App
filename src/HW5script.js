@@ -111,6 +111,9 @@ function showCurrentData(response){
   let iconNow = response.data.weather[0].icon;
   let iconElement = document.querySelector("#icon")
       iconElement.setAttribute ("src", `https://openweathermap.org/img/wn/${iconNow}@2x.png`);
+
+  let unitsymbol = document.querySelector("#active-unit");
+      unitsymbol.innerHTML = "°C";
     
 }
 
