@@ -1,16 +1,27 @@
 body {
   background-color: white;
   background-image: url(https://static.tumblr.com/glziqhp/07plo83j2/c34zt.jpg);
-  color: rgb(51, 34, 17);
+  text-shadow: rgba(131, 99, 58, 0.8) 0.1px 0.1px 3px;
 }
 
 .card {
   background-color: rgb(177, 182, 172);
-  border: 1px solid rgb(177, 182, 172);
+  background-color: #c5c1d4;
+  background-image: linear-gradient(19deg, #a9b7b3 0%, #b1b6ac 100%);
+  background-image: linear-gradient(
+    to top,
+    rgb(144, 125, 121) 0%,
+    rgb(176, 152, 134) 100%
+  );
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+
+  border: 0px solid rgb(177, 182, 172);
   border-radius: 0.4rem;
   max-width: 400px;
-  box-shadow: rgba(131, 99, 58, 0.322) 5px 8px 8px 0;
+  box-shadow: rgba(131, 99, 58, 0.6) 2px 2px 10px 1px;
 }
+
+/////box-shadow: right,bottom,blur,reach-all-around
 
 .row {
   border: 1px solid rgb(177, 182, 172);
@@ -26,33 +37,41 @@ body {
 }
 
 #flag {
-  margin-left: 20px;
+  margin-left: 5px;
+  filter: drop-shadow(rgba(131, 99, 58, 0.4) 0.5px 0.5px 3px);
+  float: inline-end;
+  display: block;
+  margin: 0 auto;
 }
 
 #flag:hover {
   cursor: help;
 }
 
-.city-name {
+#city-name {
   display: block;
   font-size: 32px;
-  padding-top: 10px;
+  padding-top: 20px;
+  font: larger;
 }
 
 .c-date {
-  font-size: 16px;
+  color: rgb(91, 80, 69);
+  font-size: 14px;
   display: block;
   margin: 0px auto;
-  color: rgba(51, 34, 17, 0.7);
+  padding-top: 20px;
 }
 
 .icon-temp-unit-units {
   margin: 0px;
   padding: 0px;
+  padding-bottom: 5px;
 }
 
 #icon {
   margin-right: -20px;
+  filter: drop-shadow(rgba(131, 99, 58, 0.4) 0.5px 0.5px 4px);
 }
 
 .c-temp {
@@ -83,9 +102,9 @@ body {
 }
 
 #other-info {
-  margin: 5px;
-  padding: 5px;
-  -ms-flex: 50%;
+  margin: 2px;
+  padding: 2px;
+  -ms-flex: 80%;
   flex: 0 1 auto;
 }
 
@@ -128,6 +147,14 @@ table {
   size: 50px;
 }
 
+#icon01,
+#icon02,
+#icon03,
+#icon04,
+#icon05 {
+  filter: drop-shadow(rgba(131, 99, 58, 0.4) 2px 2px 5px);
+}
+
 input {
   margin: 15px;
   border-color: rgb(222, 200, 200);
@@ -167,8 +194,9 @@ button {
 }
 
 form {
-  margin: 15px 10px;
-  padding: 15px 10px;
+  margin: 5px 10px;
+  padding: 5px 10px;
+  padding-top: 15px;
 }
 
 .byLota {

@@ -12,23 +12,18 @@
       crossorigin="anonymous"
     />
   <link rel="stylesheet" href="src/styles.css"/> 
+  
   </head>
   <body>
       <center>
 
-      <div class="card" style="min-width: 450px; display: block; margin:30px">
-      <div class="wrapper" style="min-width: 450px; display: block; margin:6px auto; padding: 25px;">
-
-     <div class="row countryflag">
-     <img src="https://www.countryflags.io/de/shiny/64.png" alt="DE flag" title="DE flag" id="flag" style="width: 10%"/>
-      </div>
+      <div class="card" style="min-width: 500px; display: block; margin:30px">
+      <div class="wrapper" style="min-width: 500px; display: block; margin:6px auto; padding: 25px;">
 
       <div class="row city">
-        <h3 class="col" id="city-name" style="display:block">
+        <h3 class="col" id="city-name">
         </h3>
       </div>
-
-     
       
       <div class="row date">
         <h6 class="c-date" id="full-date" style="display:block"></h6>
@@ -48,9 +43,9 @@
        </div>  
 
     
-  <div class="row" id="other-info" style="min-width:350">   
-
-    <div class="column" id="parameters" style="width:45%; flex: auto;">
+  <div class="row" id="other-info" style="min-width:400px">   
+  
+    <div class="column" id="parameters" style="width:40%; flex: auto;">
       <ul class="parameters">
          <li class="row param description">Today:</li> 
          <li class="row param max">Min:</li>
@@ -60,7 +55,7 @@
       </ul>
     </div>
 
-    <div class="column current-data" style="width:45%; flex:auto;" >
+    <div class="column current-data" style="width:40%; flex:auto;" >
       <ul class="information">
          <li class="row info description" id="description">  </li> 
          <li class="row info c-max-min" id="min">  </li>
@@ -69,7 +64,7 @@
          <li class="row info humidity" id="hum">  </li>
       </ul>
     </div>
-
+   
   </div>  
 <br/>
 
@@ -127,9 +122,17 @@
        </button>
 </div>                  
         </form>
+
+
         </div>
+
+             <div class="row countryflag">
+     <img src="https://www.countryflags.io/de/shiny/64.png" alt="DE flag" title="DE flag" id="flag" style="width: 10%"/>
+      </div>
             </div>               
-                
+
+
+
 <p class="byLota" style="text-align: left;">
   <a 
   class="linkLotaOpeSource" 
