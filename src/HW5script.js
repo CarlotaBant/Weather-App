@@ -101,6 +101,8 @@ function showCurrentData(response){
       tempMinElement.innerHTML = `${roundMinTemp}°`;
       tempMaxElement.innerHTML = ` ${roundMaxTemp}°`;
 
+  currentMinTemp = response.data.main.temp_min;
+  currentMaxTemp = response.data.main.temp_max;
 
   let windSpeed = document.querySelector("#wind");
       windSpeed.innerHTML = `${response.data.wind.speed} km/h`;
@@ -143,6 +145,18 @@ function showForecast (response) {
   let maxTemp04 = Math.round(response.data.list[3].main.temp_max);
   let maxTemp05 = Math.round(response.data.list[4].main.temp_max);
 
+  minTemp01value = response.data.list[0].main.temp_min;
+  minTemp02value = response.data.list[1].main.temp_min;
+  minTemp03value = response.data.list[2].main.temp_min;
+  minTemp04value = response.data.list[3].main.temp_min;
+  minTemp05value = response.data.list[4].main.temp_min;
+
+  maxTemp01value = response.data.list[0].main.temp_max;
+  maxTemp02value = response.data.list[1].main.temp_max;
+  maxTemp03value = response.data.list[2].main.temp_max;
+  maxTemp04value = response.data.list[3].main.temp_max;
+  maxTemp05value = response.data.list[4].main.temp_max;
+
   let day01time = document.querySelector("#day01");
   let day02time = document.querySelector("#day02");
   let day03time = document.querySelector("#day03");
@@ -174,10 +188,10 @@ function showForecast (response) {
   day05icon.setAttribute ("src", `https://openweathermap.org/img/wn/${icon05}@2x.png`);
 
   day01minmax.innerHTML = `${minTemp01}° - ${maxTemp01}°`;
-  day02minmax.innerHTML = `${minTemp02}° - ${maxTemp01}°`;
-  day03minmax.innerHTML = `${minTemp03}° - ${maxTemp01}°`;
-  day04minmax.innerHTML = `${minTemp04}° - ${maxTemp01}°`;
-  day05minmax.innerHTML = `${minTemp05}° - ${maxTemp01}°`;
+  day02minmax.innerHTML = `${minTemp02}° - ${maxTemp02}°`;
+  day03minmax.innerHTML = `${minTemp03}° - ${maxTemp03}°`;
+  day04minmax.innerHTML = `${minTemp04}° - ${maxTemp04}°`;
+  day05minmax.innerHTML = `${minTemp05}° - ${maxTemp05}°`;
 
 }
 
@@ -185,11 +199,47 @@ function showForecast (response) {
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
+
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+
+  let temperatureElement = document.querySelector("#temperature");
+  let currentMinTempElement = document.querySelector("#min");
+  let currentMaxTempElement = document.querySelector("#max");
+  let MinMaxTemp01Element = document.querySelector("#minmax01");
+  let MinMaxTemp02Element = document.querySelector("#minmax02");
+  let MinMaxTemp03Element = document.querySelector("#minmax03");
+  let MinMaxTemp04Element = document.querySelector("#minmax04");
+  let MinMaxTemp05Element = document.querySelector("#minmax05");
+
+  let fahrenheitTemperatureNow = (celsiusTemperature * 9) / 5 + 32;
+  let fahrenheitTemperatureMin = (currentMinTemp * 9) / 5 + 32;
+  let fahrenheitTemperatureMax = (currentMaxTemp * 9) / 5 + 32;
+ let minTemp01FValue = (minTemp01value * 9) / 5 + 32;
+ let minTemp02FValue = (minTemp02value * 9) / 5 + 32;
+ let minTemp03FValue = (minTemp03value * 9) / 5 + 32;
+ let minTemp04FValue = (minTemp04value * 9) / 5 + 32;
+ let minTemp05FValue = (minTemp05value * 9) / 5 + 32;
+
+ let maxTemp01FValue = (maxTemp01value * 9) / 5 + 32;
+ let maxTemp02FValue = (maxTemp01value * 9) / 5 + 32;
+ let maxTemp03FValue = (maxTemp01value * 9) / 5 + 32;
+ let maxTemp04FValue = (maxTemp01value * 9) / 5 + 32;
+ let maxTemp05FValue = (maxTemp01value * 9) / 5 + 32;
+  
+
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperatureNow);
+  currentMinTempElement.innerHTML = `${Math.round(fahrenheitTemperatureMin)}°`;
+  currentMaxTempElement.innerHTML = `${Math.round(fahrenheitTemperatureMax)}°`;
+
+
+  MinMaxTemp01Element.innerHTML = `${Math.round(minTemp01FValue)}° - ${Math.round(maxTemp01FValue)}°`;
+  MinMaxTemp02Element.innerHTML = `${Math.round(minTemp02FValue)}° - ${Math.round(maxTemp02FValue)}°`;
+  MinMaxTemp03Element.innerHTML = `${Math.round(minTemp03FValue)}° - ${Math.round(maxTemp03FValue)}°`;
+  MinMaxTemp04Element.innerHTML = `${Math.round(minTemp04FValue)}° - ${Math.round(maxTemp04FValue)}°`;
+  MinMaxTemp05Element.innerHTML = `${Math.round(minTemp05FValue)}° - ${Math.round(maxTemp05FValue)}°`;
+
+  
 
   let unitsymbol = document.querySelector("#active-unit");
   unitsymbol.innerHTML = "°F";
@@ -201,13 +251,42 @@ function displayCelsiusTemperature(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
+  let currentMinTempElement = document.querySelector("#min");
+  let currentMaxTempElement = document.querySelector("#max");
+  let MinMaxTemp01Element = document.querySelector("#minmax01");
+  let MinMaxTemp02Element = document.querySelector("#minmax02");
+  let MinMaxTemp03Element = document.querySelector("#minmax03");
+  let MinMaxTemp04Element = document.querySelector("#minmax04");
+  let MinMaxTemp05Element = document.querySelector("#minmax05");
 
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  currentMinTempElement.innerHTML = `${Math.round(currentMinTemp)}°`;
+  currentMaxTempElement.innerHTML = `${Math.round(currentMaxTemp)}°`;
+  MinMaxTemp01Element.innerHTML = `${Math.round(minTemp01value)}° - ${Math.round(maxTemp01value)}°`;
+  MinMaxTemp02Element.innerHTML = `${Math.round(minTemp02value)}° - ${Math.round(maxTemp02value)}°`;
+  MinMaxTemp03Element.innerHTML = `${Math.round(minTemp03value)}° - ${Math.round(maxTemp03value)}°`;
+  MinMaxTemp04Element.innerHTML = `${Math.round(minTemp04value)}° - ${Math.round(maxTemp04value)}°`;
+  MinMaxTemp05Element.innerHTML = `${Math.round(minTemp05value)}° - ${Math.round(maxTemp05value)}°`;
+
+
   let unitsymbol = document.querySelector("#active-unit");
   unitsymbol.innerHTML = "°C";
 }
 
 let celsiusTemperature = null;
+let  currentMinTemp = null;
+let  currentMaxTemp = null;
+ let minTemp01value = null;
+ let minTemp02value = null;
+ let minTemp03value = null;
+ let minTemp04value = null;
+ let minTemp05value = null;
+
+ let maxTemp01value = null;
+ let maxTemp02value = null;
+ let maxTemp03value = null;
+ let maxTemp04value = null;
+ let maxTemp05value = null;
 
 /// EVENT LISTENERS
 
