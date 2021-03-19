@@ -63,8 +63,6 @@ let apiKey = "db9add1eea80b5993c21c76a9a79855d";
 let apiUrlC = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
 let apiUrlF = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=${units}&cnt=5`;
 
-console.log(apiUrlC);
-
 axios.get(apiUrlC).then(showCurrentData);
 axios.get(apiUrlF).then(showForecast);
 

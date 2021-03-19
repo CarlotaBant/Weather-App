@@ -4,36 +4,37 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>The Weather App</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
-  <link rel="stylesheet" href="src/styles.css"/> 
+
+<link rel="stylesheet" href="src/styles.css"/>
   
   </head>
   <body>
       <center>
 
-      <div class="card" style="min-width: 500px; display: block; margin:30px">
-      <div class="wrapper" style="min-width: 500px; display: block; margin:6px auto; padding: 25px;">
+      <div class="card" style="max-width: 500px; display: block; margin:10px">
+      <div class="wrapper" style="max-width: 500px; display: block; margin:auto; padding: 10px;">
 
-      <div class="row city">
+      <div class="row city" style="max-width: 310px">
         <h3 class="col" id="city-name">
         </h3>
       </div>
       
-      <div class="row date">
+      <div class="row date" style="max-width: 310px">
         <h6 class="c-date" id="full-date" style="display:block"></h6>
       </div>
      
 
-     <div class="row icon-temp-unit-units" style="max-width:300px">
+     <div class="row icon-temp-unit-units" style="min-width:320px; max-width:340px">
        <div class="col"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif" id="icon" class="c-icon" alt="Clear"/></div>
        <div class="col">
-         <h1 class="c-temp" id="temperature"></h1>
+         <h1 class="col c-temp" id="temperature"></h1>
         </div>
        <div class="col"> <h5 class="c-unit" id="active-unit">°C</h5></div>
        <div class="col units">         
@@ -43,10 +44,10 @@
        </div>  
 
     
-  <div class="row" id="other-info" style="min-width:400px">   
+  <div class="row" id="other-info" style="max-width:380px">   
   
-    <div class="column" id="parameters" style="width:40%; flex: auto;">
-      <ul class="parameters">
+    <div class="column" id="parameters" style="width:50%;">
+      <ul class="parameters" style="float: right;">
          <li class="row param description">Today:</li> 
          <li class="row param max">Min:</li>
          <li class="row param max">Max:</li>
@@ -55,7 +56,7 @@
       </ul>
     </div>
 
-    <div class="column current-data" style="width:40%; flex:auto;" >
+    <div class="column current-data" style="width:35%; flex:auto;" >
       <ul class="information">
          <li class="row info description" id="description">  </li> 
          <li class="row info c-max-min" id="min">  </li>
@@ -69,7 +70,7 @@
 <br/>
 
 
-<table>
+<table style="max-width:300px; display:min-content">
   <tr class="forecast times">
     <td id="day01"></td>
     <td id="day02"></td>
@@ -96,14 +97,14 @@
     
 
 
-<div class="form-and-buttons" style="padding:10px">
+<div class="form-and-buttons" style="padding:8px">
 
   <form> 
       <input 
                   type="search" 
                   id="pickCity"
                   placeholder=" Pick a city..." 
-                  style="width:260px; margin: 5px;"
+                  style="display:block; width:260px; margin: 5px;"
                   />
  
 
@@ -113,11 +114,11 @@
                   type="submit" 
                   value="search" 
                   class="column but1" 
-                  style="width:132px;" 
+                  style="width:100px;" 
                   id="search-city"> 
 </input>
       
-<button class="column but2" style="width:132px" id="current-location"> 
+<button class="column but2" style="width:100px" id="current-location"> 
                 current
        </button>
 </div>                  
@@ -127,13 +128,13 @@
         </div>
 
              <div class="row countryflag">
-     <img src="https://www.countryflags.io/de/shiny/64.png" alt="DE flag" title="DE flag" id="flag" style="width: 10%"/>
+     <img src="https://www.countryflags.io/de/shiny/64.png" alt="DE flag" title="DE flag" id="flag" style="width: 4%; display: block; margin:auto;"/>
       </div>
             </div>               
 
 
 
-<p class="byLota" style="text-align: left;">
+<p class="byLota" style="text-align: left; padding-left: 15px;">
   <a 
   class="linkLotaOpeSource" 
   href="https://github.com/CarlotaBant/Weather-App" 
