@@ -32,47 +32,12 @@ currentTime.innerHTML = `${days[now.getDay()]}, ${now.getDate()} ${
 } ${now.getHours()}:${(now.getMinutes() < 10 ? '0' : '') + now.getMinutes()}`;
 
 
-/// GEOLOCATION & LOCATION BY CITY 
-
-
-function getCurrentPosition() {
-navigator.geolocation.getCurrentPosition(showPosition);
-}
-
-function handleSubmit(event) {
-  event.preventDefault();
-  let cityInputElement = document.querySelector("#pickCity");
-  pickedCity(cityInputElement.value);
-}
-
-function showPosition(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let units = "metric";
-  let apiKey = "db9add1eea80b5993c21c76a9a79855d";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
-  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}&cnt=5`;
-  axios.get(apiUrl).then(showCurrentData);
-  axios.get(apiUrlForecast).then(showForecast);
-
-}
-
-function pickedCity(cityName) {
-let units = "metric";
-let apiKey = "db9add1eea80b5993c21c76a9a79855d";
-let apiUrlC = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
-let apiUrlF = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=${units}&cnt=5`;
-
-axios.get(apiUrlC).then(showCurrentData);
-axios.get(apiUrlF).then(showForecast);
-
-}
 
 
 /// RESPONSES TO AXIOS:
 
 
-function showCurrentData(response){
+function showCurrentData(response) {
   let currentLocation = document.querySelector("#city-name");
       currentLocation.innerHTML = response.data.name;
 
@@ -185,13 +150,50 @@ function showForecast (response) {
   day04icon.setAttribute ("src", `https://openweathermap.org/img/wn/${icon04}@2x.png`);
   day05icon.setAttribute ("src", `https://openweathermap.org/img/wn/${icon05}@2x.png`);
 
-  day01minmax.innerHTML = `${minTemp01}° - ${maxTemp01}°`;
-  day02minmax.innerHTML = `${minTemp02}° - ${maxTemp02}°`;
-  day03minmax.innerHTML = `${minTemp03}° - ${maxTemp03}°`;
-  day04minmax.innerHTML = `${minTemp04}° - ${maxTemp04}°`;
-  day05minmax.innerHTML = `${minTemp05}° - ${maxTemp05}°`;
+  day01minmax.innerHTML = `${minTemp01}° <br> ${maxTemp01}°`;
+  day02minmax.innerHTML = `${minTemp02}° <br> ${maxTemp02}°`;
+  day03minmax.innerHTML = `${minTemp03}° <br> ${maxTemp03}°`;
+  day04minmax.innerHTML = `${minTemp04}° <br> ${maxTemp04}°`;
+  day05minmax.innerHTML = `${minTemp05}° <br> ${maxTemp05}°`;
 
 }
+
+/// GEOLOCATION & LOCATION BY CITY 
+
+
+function getCurrentPosition() {
+navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#pickCity");
+  pickedCity(cityInputElement.value);
+}
+
+function showPosition(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let units = "metric";
+  let apiKey = "db9add1eea80b5993c21c76a9a79855d";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}&cnt=5`;
+  axios.get(apiUrl).then(showCurrentData);
+  axios.get(apiUrlForecast).then(showForecast);
+
+}
+
+function pickedCity(cityName) {
+let units = "metric";
+let apiKey = "db9add1eea80b5993c21c76a9a79855d";
+let apiUrlC = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
+let apiUrlF = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=${units}&cnt=5`;
+
+axios.get(apiUrlC).then(showCurrentData);
+axios.get(apiUrlF).then(showForecast);
+
+}
+
 
 /// TEMPERATURE BY UNIT
 
@@ -231,11 +233,11 @@ function displayFahrenheitTemperature(event) {
   currentMaxTempElement.innerHTML = `${Math.round(fahrenheitTemperatureMax)}°`;
 
 
-  MinMaxTemp01Element.innerHTML = `${Math.round(minTemp01FValue)}° - ${Math.round(maxTemp01FValue)}°`;
-  MinMaxTemp02Element.innerHTML = `${Math.round(minTemp02FValue)}° - ${Math.round(maxTemp02FValue)}°`;
-  MinMaxTemp03Element.innerHTML = `${Math.round(minTemp03FValue)}° - ${Math.round(maxTemp03FValue)}°`;
-  MinMaxTemp04Element.innerHTML = `${Math.round(minTemp04FValue)}° - ${Math.round(maxTemp04FValue)}°`;
-  MinMaxTemp05Element.innerHTML = `${Math.round(minTemp05FValue)}° - ${Math.round(maxTemp05FValue)}°`;
+  MinMaxTemp01Element.innerHTML = `${Math.round(minTemp01FValue)}°  <br>  ${Math.round(maxTemp01FValue)}°`;
+  MinMaxTemp02Element.innerHTML = `${Math.round(minTemp02FValue)}°  <br>  ${Math.round(maxTemp02FValue)}°`;
+  MinMaxTemp03Element.innerHTML = `${Math.round(minTemp03FValue)}°  <br>  ${Math.round(maxTemp03FValue)}°`;
+  MinMaxTemp04Element.innerHTML = `${Math.round(minTemp04FValue)}°  <br>  ${Math.round(maxTemp04FValue)}°`;
+  MinMaxTemp05Element.innerHTML = `${Math.round(minTemp05FValue)}°  <br>  ${Math.round(maxTemp05FValue)}°`;
 
   
 
@@ -260,11 +262,11 @@ function displayCelsiusTemperature(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
   currentMinTempElement.innerHTML = `${Math.round(currentMinTemp)}°`;
   currentMaxTempElement.innerHTML = `${Math.round(currentMaxTemp)}°`;
-  MinMaxTemp01Element.innerHTML = `${Math.round(minTemp01value)}° - ${Math.round(maxTemp01value)}°`;
-  MinMaxTemp02Element.innerHTML = `${Math.round(minTemp02value)}° - ${Math.round(maxTemp02value)}°`;
-  MinMaxTemp03Element.innerHTML = `${Math.round(minTemp03value)}° - ${Math.round(maxTemp03value)}°`;
-  MinMaxTemp04Element.innerHTML = `${Math.round(minTemp04value)}° - ${Math.round(maxTemp04value)}°`;
-  MinMaxTemp05Element.innerHTML = `${Math.round(minTemp05value)}° - ${Math.round(maxTemp05value)}°`;
+  MinMaxTemp01Element.innerHTML = `${Math.round(minTemp01value)}°  <br>  ${Math.round(maxTemp01value)}°`;
+  MinMaxTemp02Element.innerHTML = `${Math.round(minTemp02value)}°  <br>  ${Math.round(maxTemp02value)}°`;
+  MinMaxTemp03Element.innerHTML = `${Math.round(minTemp03value)}°  <br>  ${Math.round(maxTemp03value)}°`;
+  MinMaxTemp04Element.innerHTML = `${Math.round(minTemp04value)}°  <br>  ${Math.round(maxTemp04value)}°`;
+  MinMaxTemp05Element.innerHTML = `${Math.round(minTemp05value)}°  <br>  ${Math.round(maxTemp05value)}°`;
 
 
   let unitsymbol = document.querySelector("#active-unit");

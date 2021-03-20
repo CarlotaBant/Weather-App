@@ -61,7 +61,7 @@ body {
 .icon-temp-unit-units {
   margin: 0px;
   padding: 0px;
-  padding-bottom: 5px;
+  padding-bottom: 0px;
 }
 
 #icon {
@@ -97,8 +97,8 @@ body {
 }
 
 #other-info {
-  margin: 2px;
-  padding: 2px;
+  margin: 1px;
+  padding: 1px;
   -ms-flex: 80%;
   flex: 0 1 auto;
 }
@@ -130,16 +130,16 @@ ul {
   table-layout: auto;
 }
 
-table {
-  width: 400px;
-  grid-area: solid teal;
-  table-layout: auto;
+.forecastbox {
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
 }
 
 .forecast {
   color: rgba(51, 34, 17, 0.7);
   text-align: center;
-  size: 50px;
+  width: 400px;
+  max-width: 99%;
 }
 
 #icon01,
@@ -148,6 +148,10 @@ table {
 #icon04,
 #icon05 {
   filter: drop-shadow(rgba(131, 99, 58, 0.4) 2px 2px 5px);
+}
+
+td {
+  padding: 0% 1%;
 }
 
 input {
@@ -196,8 +200,8 @@ form {
 
 .byLota {
   color: whitesmoke;
-  padding: 10px;
-  margin: 5px;
+  padding-bottom: 10px;
+  margin: 0px;
 }
 
 .linkLotaOpeSource {
