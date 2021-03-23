@@ -90,6 +90,7 @@ function showForecast (response) {
   let time04 = new Date(response.data.list[3].dt*1000);
   let time05 = new Date(response.data.list[4].dt*1000);
 
+
   let icon01 = (response.data.list[0].weather[0].icon);
   let icon02 = (response.data.list[1].weather[0].icon);
   let icon03 = (response.data.list[2].weather[0].icon);
@@ -176,9 +177,11 @@ function showPosition(position) {
   let lon = position.coords.longitude;
   let units = "metric";
   let apiKey = "db9add1eea80b5993c21c76a9a79855d";
+
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
-  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}&cnt=5`;
   axios.get(apiUrl).then(showCurrentData);
+
+  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}&cnt=5`;
   axios.get(apiUrlForecast).then(showForecast);
 
 }
@@ -191,7 +194,6 @@ let apiUrlF = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&ap
 
 axios.get(apiUrlC).then(showCurrentData);
 axios.get(apiUrlF).then(showForecast);
-
 }
 
 
@@ -199,9 +201,6 @@ axios.get(apiUrlF).then(showForecast);
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
-
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
 
   let temperatureElement = document.querySelector("#temperature");
   let currentMinTempElement = document.querySelector("#min");
@@ -215,6 +214,7 @@ function displayFahrenheitTemperature(event) {
   let fahrenheitTemperatureNow = (celsiusTemperature * 9) / 5 + 32;
   let fahrenheitTemperatureMin = (currentMinTemp * 9) / 5 + 32;
   let fahrenheitTemperatureMax = (currentMaxTemp * 9) / 5 + 32;
+
  let minTemp01FValue = (minTemp01value * 9) / 5 + 32;
  let minTemp02FValue = (minTemp02value * 9) / 5 + 32;
  let minTemp03FValue = (minTemp03value * 9) / 5 + 32;
@@ -248,8 +248,6 @@ function displayFahrenheitTemperature(event) {
 
 function displayCelsiusTemperature(event) {
   event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
   let currentMinTempElement = document.querySelector("#min");
   let currentMaxTempElement = document.querySelector("#max");
