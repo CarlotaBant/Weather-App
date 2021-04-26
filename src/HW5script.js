@@ -42,8 +42,8 @@ function showCurrentData(response) {
       currentLocation.innerHTML = response.data.name;
 
   let flagElement = document.querySelector("#flag")
-     cflag = response.data.sys.country;
-     flagElement.setAttribute("src", `https://www.countryflags.io/${cflag}/shiny/64.png`)
+     cflag = response.data.sys.country.toString().toLowerCase();
+     flagElement.setAttribute("src", `https://lipis.github.io/flag-icon-css/flags/4x3/${cflag}.svg`)
      flagElement.setAttribute("alt", `${cflag} flag`)
      flagElement.setAttribute("title", `${cflag}`)
 
